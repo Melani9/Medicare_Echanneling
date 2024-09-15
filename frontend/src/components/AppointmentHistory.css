@@ -1,0 +1,62 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif; /* Update this to match your project's font */
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading styling */
+h1 {
+  color: #333; /* Adjust the color to match your project's design */
+  text-align: center;
+  margin-top: 60px; /* Move the heading downward */
+  margin-bottom: 20px; /* Adjust spacing as needed */
+  font-size: 2em; /* Update font size to match your project */
+}
+
+/* Appointment history section */
+.appointment-history {
+  padding: 20px;
+}
+
+/* Table styling */
+.appointments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust this value as needed to shift the table downward */
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #6a45ee; /* Adjust this color to match your project's design */
+  color: white;
+}
+
+td {
+  background-color: #fff; /* Adjust this color to match your project's design */
+  color: #333;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* No appointments message styling */
+.no-appointments {
+  text-align: center;
+  color: #666; /* Adjust the color as needed */
+  font-style: italic;
+  padding: 20px;
+}
