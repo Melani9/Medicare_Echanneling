@@ -7,7 +7,7 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #3939d9f2;
+  background: #a424c8;
 }
 .container {
   padding: 0 100px;
@@ -18,7 +18,7 @@ body {
   }
 }
 .page {
-  margin-left: 120px;
+ 
   background: #e5e5e5;
   padding: 40px;
   height: 100vh;
@@ -41,6 +41,25 @@ body {
     width: 100%;
   }
 }
+.logo {
+  max-width: 20%; /* Ensure it scales down if the container is smaller */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 700px) {
+  .logo {
+    width: 100%; /* Adjust this percentage as needed for medium screens */
+    max-width: 250px; /* Set a maximum width for medium screens */
+  }
+}
+
+@media (max-width: 460px) {
+  .logo {
+    width: 100%; /* Adjust this percentage for small screens */
+    max-width: 200px; /* Set a maximum width for small screens */
+  }
+}
+
 .form-title{
   font-size: 1.75rem;
   color: #111;
@@ -78,20 +97,27 @@ body {
   flex-direction: column;
   gap: 30px;
   width: 550px;
-}
-.add-admin-form form {
+}.add-admin-form form {
   width: 100%;
+  background: #f5f5f5; /* Light gray background for contrast */
+  padding: 20px; /* Added padding for spacing */
+  border-radius: 10px; /* Rounded corners for form */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+
 .form-component p:first-child {
   font-size: 28px;
   font-weight: 700;
-  color: #370080a3;
+  color: #6b46c1; /* Purple color for headings */
   margin-top: 30px;
+  text-align: center; /* Center text alignment for better visual impact */
 }
+
 .form-component form div {
   display: flex;
   gap: 30px;
 }
+
 .form-component form input,
 .form-component form select,
 .form-component form textarea {
@@ -99,8 +125,17 @@ body {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  border: 1px solid gray;
+  border: 1px solid #ccc; /* Light gray border */
+  transition: border 0.3s; /* Smooth transition for focus state */
 }
+
+.form-component form input:focus,
+.form-component form select:focus,
+.form-component form textarea:focus {
+  border-color: #af16d1; /* Purple border on focus */
+  outline: none; /* Remove default outline */
+}
+
 .form-component button {
   padding: 10px 35px;
   color: #fff;
@@ -109,213 +144,294 @@ body {
   border: none;
   border-radius: 8px;
   font-size: 24px;
+  margin-top: 20px; /* Adjust margin for spacing */
   margin-bottom: 30px;
-  background: linear-gradient(140deg, #9083d5, #271776ca);
+  background: linear-gradient(140deg, #9083d5, #aa1b71ca); /* Purple gradient */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background 0.3s; /* Smooth transition for hover state */
 }
+
+.form-component button:hover {
+  background: linear-gradient(140deg, #6b46c1, #271776); /* Darker gradient on hover */
+}
+
 .form-component .wrapper {
   display: flex;
   gap: 50px;
 }
+
 .form-component .wrapper .banner {
   flex: 1;
 }
+
 .form-component .wrapper .banner:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .form-component .wrapper .banner:last-child img {
   max-width: 450px;
 }
+
 @media (max-width: 888px) {
   .form-component {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+  
   .form-component form div {
-    flex-direction: column;
+    flex-direction: column; /* Stack elements on smaller screens */
   }
 }
+
 @media (max-width: 667px) {
   .form-component form input,
   .form-component form select,
   .form-component form textarea {
     font-size: 20px;
-    padding: 10px;
+    padding: 10px; /* Reduced padding for smaller screens */
   }
 }
+
 @media (max-width: 600px) {
   .form-component form {
     width: 100%;
   }
 }
+
 @media (max-width: 485px) {
   .add-admin-form {
     padding: 30px 0;
   }
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* Change font family for a modern look */
+}
+
 .dashboard {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 20px; /* Add padding to the dashboard */
+  background: #f5f5f5; /* Light gray background for contrast */
+  border-radius: 10px; /* Rounded corners for the dashboard */
 }
+
+.dashboard .banner {
+ 
+    margin-top: 50px; /* Adjust this value as needed */
+
+  
+  background: #b93ee1; /* Dark purple for banner background */
+  border-radius: 10px; /* Rounded corners for banners */
+  padding: 11px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 .dashboard .banner:first-child {
-  height: 35vh;
   display: flex;
   gap: 20px;
 }
+
 .dashboard .banner:first-child .firstBox {
   flex: 2;
   display: flex;
   align-items: center;
-  border-radius: 20px;
-  background: #b5b5ff;
-  padding: 20px 20px 0 10px;
+  padding: 10px;
+  background: #ba51c3; /* Light purple background */
+  border-radius: 10px;
 }
+
 .dashboard .banner:first-child .firstBox img {
   height: 100%;
-  flex: 1;
+  flex: -1;
+  border-radius: 10px; /* Rounded corners for image */
 }
+
 .dashboard .banner:first-child .firstBox .content {
   flex: 2;
 }
+
 .dashboard .banner:first-child .firstBox .content div {
   display: flex;
   align-items: center;
-  font-size: 34px;
-  margin-bottom: 12px;
+  font-size: 28px; /* Slightly smaller for better readability */
+  margin-bottom: 10px;
 }
+
 .dashboard .banner:first-child .firstBox .content div p {
   margin-right: 10px;
-  font-size: 34px;
+  font-size: 28px;
 }
+
 .dashboard .banner:first-child .firstBox .content div h5 {
-  color: #ff008d;
+  color: #ffffff; /* White color for better contrast */
 }
+
 .dashboard .banner:first-child .firstBox .content p {
   font-size: 16px;
+  color: #333; /* Dark gray for better readability */
 }
-.dashboard .banner:first-child .secondBox {
-  background: #3939d9f2;
-  color: #fff;
-}
-.dashboard .banner:first-child .thirdBox {
-  color: #ff008d;
-  background: #fff;
-}
+
 .dashboard .banner:first-child .secondBox,
 .dashboard .banner:first-child .thirdBox {
   flex: 1;
-  border-radius: 20px;
-  padding: 20px 25px;
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
+
+.dashboard .banner:first-child .secondBox {
+  background: #be47e6; /* Darker purple */
+  color: #fff;
+}
+
+.dashboard .banner:first-child .thirdBox {
+  background: #ffffff; /* White for the third box */
+  color: #6b46c1; /* Purple text */
+}
+
 .dashboard .banner:first-child .secondBox p,
 .dashboard .banner:first-child .thirdBox p {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
+
 .dashboard .banner:first-child .secondBox h3,
 .dashboard .banner:first-child .thirdBox h3 {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px; /* Reduced letter spacing */
 }
+
 .dashboard .banner:last-child {
-  height: 65vh;
-  background: #fff;
-  border-radius: 20px;
+  background: #ffffff; /* White background for the appointments section */
   padding: 40px;
 }
+
 .dashboard .banner:last-child h5 {
   font-size: 24px;
-  letter-spacing: 2px;
+  letter-spacing: 1px; /* Reduced letter spacing */
   margin-bottom: 20px;
-  color: #111;
+  color: #111; /* Dark text color for headings */
 }
+
 .dashboard .banner table {
+  margin-left: 10px;
   width: 100%;
   color: #111;
-  font-size: 20px;
+  font-size: 18px; /* Slightly smaller font size */
+  border-collapse: collapse; /* Collapse borders for cleaner look */
 }
+
+.dashboard .banner table th,
+.dashboard .banner table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd; /* Light gray border for rows */
+}
+
+.dashboard .banner table th {
+  background: #6b46c1; /* Dark purple for header background */
+  color: #ffffff; /* White text for header */
+}
+
 .dashboard .banner table select {
-  font-size: 20px;
-  border: none;
+  font-size: 18px;
+  border: 1px solid #ccc; /* Border for select elements */
+  border-radius: 5px; /* Rounded corners for select elements */
+  padding: 5px; /* Padding for select elements */
   width: 100%;
-  font-weight: 600;
 }
-.dashboard table td svg{
+
+.dashboard .banner table td svg {
   display: flex;
   margin: 0 auto;
 }
-.dashboard table td .green{
+
+.dashboard table td .green {
   font-size: 20px;
-  color: #16a34a;
+  color: #16a34a; /* Green for visited */
 }
-.dashboard table td .red{
+
+.dashboard table td .red {
   font-size: 20px;
-  color: #dc2626;
+  color: #dc2626; /* Red for not visited */
 }
+
 .dashboard .banner table select:focus {
   outline: none;
+  border-color: #6b46c1; /* Focus border color */
 }
+
 .dashboard .banner table .value-pending {
-  color: #eab308;
+  color: #eab308; /* Yellow for pending */
 }
+
 .dashboard .banner table .value-accepted {
-  color: #16a34a;
+  color: #16a34a; /* Green for accepted */
 }
+
 .dashboard .banner table .value-rejected {
-  color: #dc2626;
+  color: #dc2626; /* Red for rejected */
 }
+
 .dashboard .banner table thead {
-  text-align: justify;
-  padding: 12px 0;
+  text-align: left; /* Align header text to the left */
 }
-.dashboard .banner table thead th {
-  padding: 12px 0;
-}
+
 .dashboard .banner table tbody td {
   padding: 12px 0;
 }
+
 @media (max-width: 1376px) {
   .dashboard .banner:first-child .firstBox .content div,
   .dashboard .banner:first-child .firstBox .content div p {
-    font-size: 26px;
+    font-size: 24px; /* Adjust font size for smaller screens */
   }
+  
   .dashboard .banner:first-child .firstBox .content p {
     font-size: 14px;
   }
+  
   .dashboard .banner:first-child .secondBox p,
   .dashboard .banner:first-child .thirdBox p,
   .dashboard .banner:first-child .secondBox h3,
   .dashboard .banner:first-child .thirdBox h3 {
-    font-size: 20px;
+    font-size: 18px; /* Adjust font size for smaller screens */
   }
 }
+
 @media (max-width: 1020px) {
   .dashboard {
     height: fit-content;
   }
+  
   .dashboard .banner:first-child,
   .dashboard .banner:last-child {
     flex-wrap: wrap;
     height: fit-content;
   }
+  
   .dashboard .banner:first-child .firstBox {
     flex: none;
     width: 100%;
     height: 265px;
   }
+  
   .dashboard .banner:first-child .secondBox,
   .dashboard .banner:first-child .thirdBox {
     height: 175px;
   }
 }
+
 @media (max-width: 620px) {
   .dashboard .banner:first-child .secondBox,
   .dashboard .banner:first-child .thirdBox {
@@ -323,100 +439,112 @@ body {
     flex: none;
   }
 }
+
 @media (max-width: 485px) {
   .dashboard .banner:first-child .firstBox {
     flex-direction: column;
     height: fit-content;
     padding: 20px;
   }
+  
   .dashboard .banner:first-child .firstBox img {
     width: 270px;
     height: 270px;
     margin-bottom: 25px;
   }
+  
   .dashboard .banner:first-child .firstBox div {
     justify-content: center;
   }
 }
 
 .sidebar {
-  position: fixed;
-  width: 120px;
-  background: transparent;
+  position: fixed; /* Keep it fixed at the top */
+  width: 100%; /* Full width */
+  background: #e5e5e5; /* Solid background color without transparency */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  height: 100%;
-  align-items: center;
-  color: #fff;
-  padding: 70px 0;
+  flex-direction: row; /* Align items horizontally */
+  justify-content: space-around; /* Distribute space evenly between items */
+  top: 0; /* Position it at the top */
+  left: 0; /* Align it to the left */
+  height: 70px; /* Set height as needed */
+  align-items: center; /* Center items vertically */
+  color: #2e0c30; /* Text color */
+  padding: 0; /* Remove vertical padding */
+  z-index: 1000; /* Ensure the sidebar is above other content */
 }
+
+
 .sidebar svg {
-  width: 50px;
-  height: 50px;
-  font-size: 34px;
+  width: 50px; /* Icon width */
+  height: 50px; /* Icon height */
+  font-size: 34px; /* Font size for SVGs */
 }
+
 .sidebar svg:hover {
-  background: #fff;
-  color: #3939d9f2;
-  border-radius: 8px;
-  transition: 0.3s;
-  cursor: pointer;
+  background: #fff; /* Background color on hover */
+  color: #8012b7f2; /* Text color on hover */
+  border-radius: 8px; /* Round corners */
+  transition: 0.3s; /* Transition effect */
+  cursor: pointer; /* Pointer cursor on hover */
 }
+
 .sidebar .links {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  display: flex; /* Flex for horizontal alignment */
+  flex-direction: row; /* Align links horizontally */
+  gap: 30px; /* Space between links */
 }
+
 .wrapper {
-  display: none;
+  display: none; /* Initially hide the wrapper */
 }
+
 .wrapper .hamburger {
-  display: none;
+  display: none; /* Initially hide the hamburger menu */
 }
 
 @media (max-width: 1208px) {
   .sidebar {
-    background: #3939d9f2;
-    left: -100%;
-    transition: 0.3s;
+    background: #3939d9f2; /* Change background color for smaller screens */
+    left: -100%; /* Hide sidebar initially */
+    transition: 0.3s; /* Smooth transition */
   }
   .show {
-    left: 0;
-    transition: 0.3s;
+    left: 0; /* Show the sidebar */
+    transition: 0.3s; /* Smooth transition */
   }
   .wrapper {
-    display: block;
-    position: fixed;
-    top: 30px;
-    left: 40px;
-    font-size: 34px;
-    background: #3939d9f2;
-    color: #fff;
-    height: 40px;
-    width: 40px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block; /* Show the wrapper */
+    position: fixed; /* Fix position for hamburger */
+    top: 20px; /* Position it below the sidebar */
+    left: 20px; /* Align to the left */
+    font-size: 34px; /* Font size */
+    background: #3939d9f2; /* Background color */
+    color: #fff; /* Text color */
+    height: 40px; /* Set height */
+    width: 40px; /* Set width */
+    border-radius: 8px; /* Round corners */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
   }
   .wrapper .hamburger {
-    display: block;
-  }
-}
-@media (max-width: 485px) {
-  .wrapper {
-    left: 20px;
-  }
-  .show {
-    width: 80px;
+    display: block; /* Show the hamburger icon */
   }
 }
 
+@media (max-width: 485px) {
+  .wrapper {
+    left: 20px; /* Adjust left position */
+  }
+  .show {
+    width: 80px; /* Adjust width for show state */
+  }
+}
+
+
 .doctors h1 {
-  color: #3939d9f2;
+  color: #7f2aa6f2;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }
@@ -467,7 +595,7 @@ body {
 }
 
 .messages h1 {
-  color: #3939d9f2;
+  color: #b113cdf2;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }

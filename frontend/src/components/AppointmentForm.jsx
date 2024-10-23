@@ -12,7 +12,7 @@ const AppointmentForm = () => {
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
   const [appointmentDate, setAppointmentDate] = useState("");
-  const [department, setDepartment] = useState("Pediatrics");
+  const [department, setDepartment] = useState("");
   const [doctorFirstName, setDoctorFirstName] = useState("");
   const [doctorLastName, setDoctorLastName] = useState("");
   const [address, setAddress] = useState("");
@@ -42,6 +42,8 @@ const AppointmentForm = () => {
     };
     fetchDoctors();
   }, []);
+
+  
   const handleAppointment = async (e) => {
     e.preventDefault();
     try {
@@ -132,8 +134,9 @@ const AppointmentForm = () => {
               placeholder="Date of Birth"
               value={dob}
               onChange={(e) => setDob(e.target.value)}
-            />
+            />           
           </div>
+          
           <div>
             <select value={gender} onChange={(e) => setGender(e.target.value)}>
               <option value="">Select Gender</option>
@@ -141,13 +144,15 @@ const AppointmentForm = () => {
               <option value="Female">Female</option>
             </select>
             <input
-              type="date"
-              placeholder="Appointment Date"
-              value={appointmentDate}
-              onChange={(e) => setAppointmentDate(e.target.value)}
-            />
+             type="datetime-local"
+             placeholder="Appointment Date & Time"
+            value={appointmentDate}
+            onChange={(e) => setAppointmentDate(e.target.value)}
+           />
+
           </div>
           <div>
+            
             <select
               value={department}
               onChange={(e) => {

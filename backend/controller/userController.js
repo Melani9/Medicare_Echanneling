@@ -57,6 +57,7 @@ import ErrorHandler from '../middlewares/errorMiddleware.js';
 import { generateToken } from '../utils/jwtToken.js';
 import cloudinary from 'cloudinary';
 
+
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
   console.log('patientRegister called with body:', req.body);
   const { firstName, lastName, email, phone, nic, dob, gender, password } = req.body;
@@ -237,3 +238,42 @@ export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
       message: 'Patient Logged Out Successfully.',
     });
 });
+
+
+// Doctor Logout Controller
+export const logoutDoctor = catchAsyncErrors(async (req, res, next) => {
+  res
+    .status(201)
+    .cookie('doctorToken', '', {
+      httpOnly: true,
+      expires: new Date(Date.now()),
+    })
+    .json({
+      success: true,
+      message: 'Doctor Logged Out Successfully.',
+    });
+});
+
+// Get total appointments count
+export const getAppointmentsCount = async (_req, res) => {
+  try {
+    const count = await Appointment.countDocuments();
+    console.log('Appointment count:', count);  // Debug line
+    res.json({ count });
+  } catch (error) {
+    console.error('Error counting appointments:', error);  // Debug error
+    res.status(500).json({ message: "Error counting appointments" });
+  }
+};
+
+// Get total registered doctors count
+export const getDoctorsCount = async (_req, res) => {
+  try {
+    const count = await Doctor.countDocuments();
+    console.log('Doctor count:', count);  // Debug line
+    res.json({ count });
+  } catch (error) {
+    console.error('Error counting doctors:', error);  // Debug error
+    res.status(500).json({ message: "Error counting doctors" });
+  }
+};

@@ -1,87 +1,70 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaLocationArrow, FaPhone } from "react-icons/fa6";
+import { FaLocationArrow, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
-  const hours = [
-    {
-      id: 1,
-      day: "Monday",
-      time: "9:00 AM - 11:00 PM",
-    },
-    {
-      id: 2,
-      day: "Tuesday",
-      time: "12:00 PM - 12:00 AM",
-    },
-    {
-      id: 3,
-      day: "Wednesday",
-      time: "10:00 AM - 10:00 PM",
-    },
-    {
-      id: 4,
-      day: "Thursday",
-      time: "9:00 AM - 9:00 PM",
-    },
-    {
-      id: 5,
-      day: "Monday",
-      time: "3:00 PM - 9:00 PM",
-    },
-    {
-      id: 6,
-      day: "Saturday",
-      time: "9:00 AM - 3:00 PM",
-    },
-  ];
+
+  // Adding Kommunicate script when the component mounts
+  useEffect(() => {
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"17718a4e1fb2a882aaf39afda95303aa6","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); 
+        s.type = "text/javascript"; 
+        s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; 
+        h.appendChild(s);
+        window.kommunicate = m; 
+        m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+  }, []);
 
   return (
-    <>
-      <footer className={"container"}>
-        <hr />
-        <div className="content">
+    <footer style={{ backgroundColor: "#350e527e", color: "#fff", padding: "20px 0" }}>
+      <div className="container">
+        <div className="content" style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
-            <img src="/logo.png" alt="logo" className="logo-img"/>
+            <img src="/logo.png" alt="logo" className="logo-img" style={{ marginBottom: "20px" }} />
           </div>
           <div>
             <h4>Quick Links</h4>
-            <ul>
-              <Link to={"/"}>Home</Link>
-              <Link to={"/appointment"}>Appointment</Link>
-              <Link to={"/about"}>About</Link>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li><Link to="/" style={{ color: "#fff", textDecoration: "none" }}>Home</Link></li>
+              <li><Link to="/appointment" style={{ color: "#fff", textDecoration: "none" }}>Appointment</Link></li>
+              <li><Link to="/about" style={{ color: "#fff", textDecoration: "none" }}>About</Link></li>
             </ul>
           </div>
           <div>
-            <h4>Hours</h4>
-            <ul>
-              {hours.map((element) => (
-                <li key={element.id}>
-                  <span>{element.day}</span>
-                  <span>{element.time}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <div>
-              <FaPhone />
+            <h4>Contact Us</h4>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+              <FaPhone style={{ marginRight: "10px" }} />
               <span>+775989659</span>
             </div>
-            <div>
-              <MdEmail />
-              <span>medicare@gmail.com</span>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+  <MdEmail style={{ marginRight: "10px" }} />
+  <a href="mailto:medicare@gmail.com" style={{ textDecoration: "none", color: "inherit" }}>
+    <span>medicare@gmail.com</span>
+  </a>
+</div>
+
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+              <FaLocationArrow style={{ marginRight: "10px" }} />
+              <a
+                href="https://maps.app.goo.gl/3cRDWgn4qAfdLY3q8"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#fff", textDecoration: "none" }}
+              >
+                Hapugala, Galle
+              </a>
             </div>
-            <div>
-              <FaLocationArrow />
-              <span>Hapugala, Galle</span>
-            </div>
+            
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 

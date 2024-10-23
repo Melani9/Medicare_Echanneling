@@ -28,6 +28,7 @@ const Messages = () => {
 
   return (
     <section className="page messages">
+      <h1> </h1>
       <h1>MESSAGE</h1>
       <div className="banner">
         {messages && messages.length > 0 ? (

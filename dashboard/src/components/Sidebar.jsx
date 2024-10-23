@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { TiHome } from "react-icons/ti";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { AiFillMessage } from "react-icons/ai";
@@ -13,8 +13,11 @@ import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
+  const [scrollDown, setScrollDown] = useState(true); // State to track scroll down
+  let lastScrollY = window.scrollY;
 
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const navigateTo = useNavigate();
 
   const handleLogout = async () => {
     await axios
@@ -29,8 +32,6 @@ const Sidebar = () => {
         toast.error(err.response.data.message);
       });
   };
-
-  const navigateTo = useNavigate();
 
   const gotoHomePage = () => {
     navigateTo("/");
@@ -53,11 +54,31 @@ const Sidebar = () => {
     setShow(!show);
   };
 
+  // Scroll detection logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < lastScrollY) {
+        // Scrolling down
+        setScrollDown(true);
+      } else {
+        // Scrolling up
+        setScrollDown(false);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <nav
         style={!isAuthenticated ? { display: "none" } : { display: "flex" }}
-        className={show ? "show sidebar" : "sidebar"}
+        className={`sidebar ${scrollDown ? "" : "hidden"} ${show ? "show" : ""}`}
       >
         <div className="links">
           <TiHome onClick={gotoHomePage} />

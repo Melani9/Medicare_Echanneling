@@ -7,8 +7,9 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #e5e5e5;
+  background-color: #80e3bf; /* Replace with your desired color */
 }
+
 
 .login-container {
   display: flex;
@@ -24,7 +25,7 @@ body {
   border: none;
   font-weight: bold;
   letter-spacing: 2px;
-  color: red;
+  color: rgb(249, 251, 249);
  
 }
 
@@ -34,7 +35,7 @@ body {
 }
 
 .logoutBtn {
- background-color: red !important;
+ background-color: rgb(250, 244, 244) !important;
  color: white;
   padding: 7px 20px;
   border-radius: 12px;
@@ -50,12 +51,12 @@ body {
   letter-spacing: 2px;
 }
 .white-btn {
-  background: #fff;
+  background: #d4ea0c;
   color: #111;
 }
 .purple-btn {
-  background: #9083d5;
-  color: #fff;
+  background: #af08d9;
+  color:  #fff;
 }
 p,
 span,
@@ -63,7 +64,7 @@ a {
   font-size: 20px;
 }
 h1 {
-  font-size: 36px;
+  font-size: 360px;
   font-weight: 900;
 }
 h1 {
@@ -146,9 +147,9 @@ h6 {
   align-items: center;
   overflow-y: hidden;
 }
-.animated-image {
+/*.animated-image {
   animation: moveUpDown 1s infinite alternate ease-in-out;
-}
+}*/
 
 @keyframes moveUpDown {
   0% {
@@ -187,18 +188,18 @@ h6 {
   padding-bottom: 60px;
 }
 .form-component h2 {
-  color: gray;
+  color: rgb(16, 12, 12);
   letter-spacing: 4px;
   margin-bottom: 30px;
 }
 .form-component h4 {
-  color: gray;
+  color: rgb(24, 224, 161);
   font-weight: 700;
   margin-bottom: 20px;
 }
 .form-component p {
   max-width: 750px;
-  color: gray;
+  color: rgb(24, 224, 161);
   margin-bottom: 20px;
 }
 .form-component form {
@@ -217,7 +218,7 @@ h6 {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  border: 1px solid gray;
+  border: 1px solid rgb(16, 21, 20);
 }
 .form-component button {
   padding: 10px 35px;
@@ -225,10 +226,10 @@ h6 {
   font-weight: 700;
   width: fit-content;
   border: none;
-  border-radius: 8px;
+  border-radius: 80px;
   font-size: 24px;
   margin-bottom: 30px;
-  background: linear-gradient(140deg, #9083d5, #271776ca);
+  background: linear-gradient(140deg, #9714b1, #09051eca);
 }
 .form-component .wrapper {
   display: flex;
@@ -246,8 +247,8 @@ h6 {
   max-width: 450px;
 }
 .login-form {
-  margin: 100px auto 20px auto;
-  max-width: 800px;
+  margin: 80px auto 20px auto;
+  max-width: 750px;
   text-align: center;
 }
 .register-form {
@@ -316,21 +317,46 @@ h6 {
     flex-direction: column-reverse;
   }
 }
+
 .message-form {
   position: relative;
+  padding: 40px; /* Padding for the overall container */
+  max-width: 800px; /* Maximum width of the form */
+  margin: 100px auto; /* Centering the container with auto margins */
+  background-color: #fff; /* White background for the form container */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for depth */
 }
+
 .message-form h2 {
-  text-align: center;
-  color: #000;
-  position: relative;
+  text-align: center; /* Center the header text */
+  color: #090909; /* Purple color */
+  margin-bottom: 30px; /* Space below the heading */
 }
+
+.message-form input[type="text"],
+.message-form input[type="number"],
+.message-form input[type="file"],
+.message-form select {
+  width: 100%; /* Full width */
+  padding: 15px; /* Padding for inputs */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #ccc; /* Light border */
+  font-size: 16px; /* Font size */
+  color: #444; /* Text color */
+  font-family: "Montserrat", sans-serif; /* Font family */
+  margin-bottom: 20px; /* Space below each input */
+}
+
 .message-form img {
   position: absolute;
   top: 0;
   right: -16%;
   height: 600px;
   z-index: -1;
+  opacity: 0.1; /* Subtlety to the background image */
 }
+
 @media (max-width: 700px) {
   .message-form img {
     right: -35%;
@@ -338,6 +364,7 @@ h6 {
     top: 10%;
   }
 }
+
 footer {
   padding-bottom: 30px !important;
 }
@@ -421,7 +448,7 @@ footer .content div:last-child div svg {
   padding-bottom: 50px;
 }
 .departments h2 {
-  color: gray;
+  color: rgb(4, 4, 4);
   margin-bottom: 30px;
 }
 
@@ -443,19 +470,20 @@ footer .content div:last-child div svg {
 .card img {
   max-width: 100%;
   max-height: 100%;  
-  object-fit: cover;
+  object-fit: auto;
   
 }
 
 .card .depart-name {
-  background:#1abc9c;
+  background: #ffffff; /* Keeping the white background */
+  color: #6a0dad; /* Updated font color to match the theme */
   font-size: 24px;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 12px;
-  border-radius: 30px;
+  border-radius: 30px; /* Retaining rounded corners */
   font-weight: 700;
   position: absolute;
   bottom: 30px;
@@ -470,9 +498,9 @@ nav {
   margin: 0 auto;
   justify-content: space-between;
   position: absolute;
-  align-items: center;
+  align-items: right;
   border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
+  border-bottom-left-radius: 1px;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
   z-index: 2;
@@ -482,31 +510,51 @@ nav .logo {
   display: flex;
   align-items: center;
   font-size: 2rem;
+  margin-top: -15px;
+}nav {
+  display: flex; /* Use flexbox for the nav container */
+  justify-content: flex-start; /* Align items to the left */
+  padding: 10px 20px; /* Add some vertical padding and left/right padding */
 }
+
 nav .navLinks {
-  flex: 2;
-}
-nav .navLinks {
+  flex: 2; /* Make navLinks take up more space */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Distribute links evenly */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Make it full width */
 }
+
+nav .navLinks .links {
+  display: flex; /* Use flexbox for the links */
+  gap: 30px; /* Space between links */
+  flex-grow: 1; /* Allow the links to grow and fill the space */
+}
+
+
+
 nav .navLinks .links {
   display: flex;
-  gap: 25px;
+  justify-content: flex-start;
+  gap: 15px; /* Adjust spacing between links if needed */
 }
+
 nav .navLinks .links a {
   text-decoration: none;
-  color: #222;
+  color: #090909fc;
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: 1.4px;
+  letter-spacing: 2px;
+  white-space: nowrap;
 }
+
+
 nav .navLinks .links a:hover {
-  color: #000;
-  transition: 0.3s;
-  cursor: pointer;
+  color: #000; /* Hover color */
+  transition: 0.3s; /* Transition effect */
+  cursor: pointer; /* Change cursor on hover */
 }
+
 nav .btn {
   padding: 8px 20px;
   color: #e5e5e5;
@@ -642,7 +690,7 @@ body {
 
 /* Navbar Styles */
 nav.sidebar {
-  background-color: #4d30df;
+  background-color: #cf0ae9;
   width: 200px;
   height: 100vh;
   position: fixed;
@@ -676,7 +724,7 @@ nav.sidebar .links svg {
 }
 
 nav.sidebar .links svg:hover {
-  color: #4CAF50;
+  color: #b70ef4;
 }
 
 /* Wrapper Styles */
@@ -787,7 +835,7 @@ th {
 }
 
 .sidebar .links > *:hover {
-  color: #1abc9c;
+  color: #b605f0;
 }
 
 .hamburger {
@@ -864,7 +912,7 @@ th {
 }
 
 .submit-reports button:hover {
-  background-color: #271776ca;
+  background-color: #a20fd2ca;
 }
 
 /* Responsive Adjustments */
@@ -890,55 +938,277 @@ th {
 
 
 /* Doctors.css */
-.page.doctors {
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+.doctors h1 {
+  color: #7f2aa6f2;
+  margin-bottom: 30px;
+  font-size: 2.3rem;
+}
+.doctors .banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 20px;
+}
+.doctors .banner .card {
+  background: #fff;
+  border-radius: 12px;
   padding: 20px;
-}
-
-h1 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.banner {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.doctors .banner .card img {
+  width: 270px;
+  height: 270px;
+  border-radius: 100%;
+  margin-bottom: 20px;
+}
+.doctors .banner .card h4 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.doctors .banner .card div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 20px;
+}
+.doctors .banner .card div p {
+  font-weight: 700;
+}
+.doctors .banner .card div p span {
+  font-weight: 500;
 }
 
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  margin: 20px;
-  padding: 20px;
-  text-align: center;
-  position: relative; /* Ensure relative positioning for correct layout */
+@media (max-width: 350px) {
+  .doctors .banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-gap: 20px;
+  }
 }
 
+/* Image styling */
 .card img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 20px;
-  border: 2px solid #ddd; /* Add a border to make images more visible */
+  margin: 0 auto 20px;
+  border: 4px solid #ffffff;
+  transition: border-color 0.3s ease;
 }
 
+.card img:hover {
+  border-color: #4a42d3;
+}
+
+/* Heading styling */
 .card h4 {
   margin-bottom: 10px;
   color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
+
+/* Detail styling under the image */
+.details {
+  margin: 10px 0;
+  text-align: center; /* Center align text */
+}
+
 
 .details p {
   margin: 5px 0;
-  color: #666;
+  color: #777;
+  font-size: 1rem;
 }
 
 .details span {
   font-weight: bold;
-  color: #333;
+  color: #444;
 }
+
+/* Button container for potential card actions */
+.button-container {
+  margin-top: 20px;
+}
+
+.button-container a {
+  text-decoration: none;
+  color: white;
+  background-color: #6c63ff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.button-container a:hover {
+  background-color: #4a42d3;
+}
+
+/****/
+/* styles.css or wherever your CSS is located */
+
+.sidebar {
+  position: fixed; /* Fixed to the viewport */
+  top: 0;
+  left: 0;
+  width: 250px; /* Width of the sidebar */
+  height: 100%; /* Full height */
+  background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+  z-index: 1000; /* On top of other elements */
+  transition: transform 0.3s ease; /* Smooth transition for sidebar */
+}
+
+.wrapper {
+  position: relative; /* Relative to allow absolute positioning */
+  z-index: 999; /* Below the sidebar */
+}
+
+.show {
+  transform: translateX(0); /* Show the sidebar */
+}
+
+.sidebar .links {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px; /* Space between links */
+}
+
+/* Additional styling for icons */
+.links svg {
+  cursor: pointer; /* Pointer on hover */
+  font-size: 24px; /* Size of icons */
+}
+/* Container for editing user details */
+.edit-user-details {
+  padding: 40px;
+  max-width: 800px;
+  margin: 100px auto 50px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading for the form */
+.edit-user-details h2 {
+  margin-bottom: 30px;
+  color: #111;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Form layout */
+.edit-user-details form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input styling for text, email, and password fields */
+.edit-user-details input[type="text"],
+.edit-user-details input[type="email"],
+.edit-user-details input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  color: #444;
+  font-family: "Montserrat", sans-serif;
+  transition: border-color 0.3s;
+}
+
+/* Purple border on focus */
+.edit-user-details input[type="text"]:focus,
+.edit-user-details input[type="email"]:focus,
+.edit-user-details input[type="password"]:focus {
+  border-color: #6a0dad; /* Purple focus */
+  outline: none;
+}
+
+/* File input styling */
+.edit-user-details input[type="file"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #444;
+}
+
+/* Submit button styling */
+.edit-user-details button[type="submit"] {
+  padding: 12px 20px;
+  background-color: #6a0dad; /* Purple background */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+.edit-user-details button[type="submit"]:hover {
+  background-color: #5a0d9a; /* Darker purple on hover */
+}
+
+/* Image preview styling */
+.edit-user-details .image-preview {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .edit-user-details {
+    padding: 30px;
+  }
+
+  .edit-user-details h2 {
+    font-size: 28px;
+  }
+
+  .edit-user-details input[type="text"],
+  .edit-user-details input[type="email"],
+  .edit-user-details input[type="password"],
+  .edit-user-details input[type="file"] {
+    font-size: 18px;
+  }
+
+  .edit-user-details button {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%; /* Creates a circular or oval shape */
+  object-fit: cover; /* Ensures the image fits within the oval */
+  max-width: 600px; /* Double the size */
+  aspect-ratio: 4 / 3; /* Controls the oval aspect ratio */
+  display: block;
+  margin: 0 auto 50px; /* Initial margin with some bottom space */
+  transition: margin 2s ease-in-out; /* Apply transition to margin */
+}
+
+.hero-image.fade-margin {
+  margin: 0 auto; /* Final state with no bottom margin */
+}
+
+

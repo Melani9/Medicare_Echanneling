@@ -62,21 +62,16 @@ const Dashboard = () => {
                   {admin &&
                     `${admin.firstName} ${admin.lastName}`}{" "}
                 </h5>
-              </div>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Facilis, nam molestias. Eaque molestiae ipsam commodi neque.
-                Assumenda repellendus necessitatibus itaque.
-              </p>
+              </div>             
             </div>
           </div>
           <div className="secondBox">
             <p>Total Appointments</p>
-            <h3>1500</h3>
+            <h3>8</h3>
           </div>
           <div className="thirdBox">
             <p>Registered Doctors</p>
-            <h3>10</h3>
+            <h3>6</h3>
           </div>
         </div>
         <div className="banner">
@@ -86,6 +81,7 @@ const Dashboard = () => {
               <tr>
                 <th>Patient</th>
                 <th>Date</th>
+                <th>Time</th>
                 <th>Doctor</th>
                 <th>Department</th>
                 <th>Status</th>
@@ -97,7 +93,8 @@ const Dashboard = () => {
                 ? appointments.map((appointment) => (
                     <tr key={appointment._id}>
                       <td>{`${appointment.firstName} ${appointment.lastName}`}</td>
-                      <td>{appointment.appointment_date.substring(0, 16)}</td>
+                      <td>{appointment.appointment_date.substring(0, 10)}</td>
+                      <td>{new Date(appointment.appointment_date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                       <td>{`${appointment.doctor.firstName} ${appointment.doctor.lastName}`}</td>
                       <td>{appointment.department}</td>
                       <td>

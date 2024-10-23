@@ -8,15 +8,18 @@ const Biography = ({imageUrl}) => {
           <img src={imageUrl} alt="whoweare" />
         </div>
         <div className="banner">
-          <p>Biography</p>
-          <h3>Who We Are</h3>
+          
+          <h3>Our Services</h3>
           <p>
-            we are................................
+          *Book Appointments Online
+
+
+
           </p>
-          <p>We are all in 2024!</p>
-          <p>Welcome to the zee medicare</p>
+          <p>*Updates on waiting times and doctor availability in real-time</p>
+          <p>*Enable Patients to Adjust Their Schedules</p>
           <p>
-            ..............................
+             *Automated Scheduling 
           </p>
           <p>stay health, be happy</p>
           <p>  </p>

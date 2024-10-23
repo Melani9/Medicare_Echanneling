@@ -11,13 +11,16 @@ import appointmentRouter from "./router/appointmentRouter.js";
 
 const app = express();
 config({ path: "./config/config.env" });
-//Print out the FRONTEND_URL and DASHBOARD_URL to the console
-//console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
-//console.log('DASHBOARD_URL:', process.env.DASHBOARD_URL);
+
+// CORS setup
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
-    method: ["GET", "POST", "DELETE", "PUT"],
+    origin: [
+      process.env.FRONTEND_URL,
+      process.env.DASHBOARD_URL,
+      process.env.DOCTORS_URL,
+    ],
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
 );
@@ -26,17 +29,23 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// File Upload setup
 app.use(
   fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp/",
   })
 );
+
+// API routes
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
 
+// Database connection
 dbConnection();
 
+// Error middleware
 app.use(errorMiddleware);
+
 export default app;

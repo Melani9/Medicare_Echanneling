@@ -86,14 +86,18 @@ return (
       <div className={show ? "navLinks showmenu" : "navLinks"}>
         <div className="links">
           <Link to={"/"} onClick={() => setShow(!show)}>
-            Home
+            Home |
           </Link>
           <Link to={"/appointment"} onClick={() => setShow(!show)}>
-            Appointment
+            Appointment |
           </Link>
-          <Link to={"/about"} onClick={() => setShow(!show)}>
-            About Us
+          <Link to={"/doctors"} onClick={() => setShow(!show)}>
+            Doctors |
           </Link>
+          <Link to={"/submitreports"} onClick={() => setShow(!show)}>
+            Submit Reports
+          </Link>
+          
         </div>
         {isAuthenticated ? (
           <div className="login-container">

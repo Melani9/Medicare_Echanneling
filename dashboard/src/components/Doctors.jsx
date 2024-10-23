@@ -27,6 +27,7 @@ const Doctors = () => {
   }
   return (
     <section className="page doctors">
+      <h1> </h1>
       <h1>DOCTORS</h1>
       <div className="banner">
         {doctors && doctors.length > 0 ? (

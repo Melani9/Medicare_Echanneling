@@ -22,9 +22,7 @@ const Doctors = () => {
     fetchDoctors();
   }, []);
 
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
-  }
+  
   return (
     <section className="page doctors">
       <h1>DOCTORS</h1>
@@ -44,19 +42,11 @@ const Doctors = () => {
                   </p>
                   <p>
                     Phone: <span>{element.phone}</span>
-                  </p>
-                  <p>
-                    DOB: <span>{element.dob.substring(0, 10)}</span>
-                  </p>
+                  </p>                  
                   <p>
                     Department: <span>{element.doctorDepartment}</span>
-                  </p>
-                  <p>
-                    NIC: <span>{element.nic}</span>
-                  </p>
-                  <p>
-                    Gender: <span>{element.gender}</span>
-                  </p>
+                  </p>                 
+                  
                 </div>
               </div>
             );
