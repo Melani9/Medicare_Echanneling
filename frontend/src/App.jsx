@@ -18,8 +18,7 @@ import Doctors from "./components/Doctors";
 import AppointmentHistory from "./components/AppointmentHistory";
 import SubmitReports from "./components/SubmitReports";
 import { GrDashboard } from "react-icons/gr";
-//import AppointmentHistory from "./components/AppointmentHistory";
-//import MessageHistory from "./components/MessageHistory"; // Import the new component
+
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
 
