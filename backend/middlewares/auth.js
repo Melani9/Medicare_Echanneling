@@ -50,8 +50,12 @@ export const isDoctorAuthenticated = catchAsyncErrors(async (req, res, next) => 
 });
 
 // Middleware to authorize specific roles
+// Middleware to authorize specific roles
 export const isAuthorized = (...roles) => {
   return (req, res, next) => {
+    if (!req.user) {
+      return next(new ErrorHandler("User not authenticated!", 400));
+    }
     if (!roles.includes(req.user.role)) {
       return next(new ErrorHandler(`${req.user.role} not allowed to access this resource!`, 403));
     }

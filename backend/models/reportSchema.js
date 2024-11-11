@@ -1,20 +1,26 @@
 // models/reportSchema.js
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const reportSchema = new mongoose.Schema({
-  report: {
-    type: String,
-    required: true,
+// Report schema definition
+const reportSchema = new mongoose.Schema(
+  {
+    description: {
+      type: String,
+      required: true,
+    },
+    file: {
+      type: String,
+      required: true, // Store the file path in MongoDB
+    },
+    doctor: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Doctor", // Reference to the Doctor model
+      required: true,
+    },
   },
-  file: {
-    type: String,
-    required: true,
-  },
-  doctor: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Doctor",
-    required: true,
-  },
-}, { timestamps: true }); // Adds createdAt and updatedAt fields
+  { timestamps: true } // Adds createdAt and updatedAt fields automatically
+);
 
-module.exports = mongoose.model("Report", reportSchema);
+// Exporting the Report model
+const Report = mongoose.model("Report", reportSchema);
+export default Report;

@@ -3,12 +3,14 @@ import { dbConnection } from "./database/dbConnection.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import fileUpload from "express-fileupload";
+
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
-
+import router from "./router/reportRouter.js";
+import reportRouter from "./router/fetchreportRouter.js";
+import doctorRouter from "./router/fetchDoctorsRouter.js";
 const app = express();
 config({ path: "./config/config.env" });
 
@@ -29,19 +31,17 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// File Upload setup
-app.use(
-  fileUpload({
-    useTempFiles: true,
-    tempFileDir: "/tmp/",
-  })
-);
+
+
+
 
 // API routes
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
-
+app.use("/api/v1/reports", router);
+app.use("/api/v1/fetch-reports", reportRouter);
+app.use("/api/v1/doctors", doctorRouter);
 // Database connection
 dbConnection();
 

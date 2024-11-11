@@ -1,3 +1,4 @@
+// src/components/ViewReports.jsx
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../main";
 import { Navigate } from "react-router-dom";
@@ -7,13 +8,12 @@ import axios from "axios";
 const ViewReports = () => {
   const { isAuthenticated } = useContext(Context);
   const [reports, setReports] = useState([]);
-  const [feedback, setFeedback] = useState({}); // Store feedback for each report
 
   // Fetch reports when component mounts
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/v1/reports", {
+        const res = await axios.get("http://localhost:8000/api/v1/fetch-reports", {
           withCredentials: true,
         });
         setReports(res.data.reports || []); // Ensure empty array if no data
@@ -25,26 +25,6 @@ const ViewReports = () => {
 
     fetchReports();
   }, []);
-
-  // Handle feedback submission
-  const handleSendFeedback = async (reportId) => {
-    if (!feedback[reportId]) {
-      toast.error("Please enter feedback before sending");
-      return;
-    }
-
-    try {
-      const { data } = await axios.post(
-        `http://localhost:8000/api/v1/reports/${reportId}/feedback`,
-        { feedback: feedback[reportId] },
-        { withCredentials: true }
-      );
-      toast.success(data.message);
-      setFeedback((prev) => ({ ...prev, [reportId]: "" })); // Clear feedback after sending
-    } catch (error) {
-      toast.error("Failed to send feedback");
-    }
-  };
 
   if (!isAuthenticated) {
     return <Navigate to={"/login"} />;
@@ -62,40 +42,24 @@ const ViewReports = () => {
                 <tr>
                   <th>Patient Name</th>
                   <th>Email</th>
-                  <th>Report Title</th>
-                  <th>Report Date</th>
-                  <th>Feedback</th>
+                  <th>Description</th>
+                  <th>Report</th>
+                  <th>Time Submitted</th>
                 </tr>
               </thead>
               <tbody>
                 {reports.length > 0 ? (
                   reports.map((report) => (
-                    <tr key={report.id}>
+                    <tr key={report._id}>
                       <td>{report.patientName}</td>
                       <td>{report.email}</td>
-                      <td>{report.title}</td>
-                      <td>{new Date(report.date).toLocaleDateString()}</td>
+                      <td>{report.description}</td>
                       <td>
-                        <div className="feedback-section">
-                          <input
-                            type="text"
-                            placeholder="Enter feedback"
-                            value={feedback[report.id] || ""}
-                            onChange={(e) =>
-                              setFeedback({
-                                ...feedback,
-                                [report.id]: e.target.value,
-                              })
-                            }
-                          />
-                          <button
-                            onClick={() => handleSendFeedback(report.id)}
-                            disabled={!feedback[report.id]} // Disable if no feedback
-                          >
-                            Send
-                          </button>
-                        </div>
+                        <a href={report.reportUrl} target="_blank" rel="noopener noreferrer">
+                          Download Report
+                        </a>
                       </td>
+                      <td>{new Date(report.submittedAt).toLocaleString()}</td>
                     </tr>
                   ))
                 ) : (
