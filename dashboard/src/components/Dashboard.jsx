@@ -16,13 +16,14 @@ const Dashboard = () => {
           "http://localhost:8000/api/v1/appointment/getall",
           { withCredentials: true }
         );
+        console.log(data.appointments.length)
         setAppointments(data.appointments);
       } catch (error) {
         setAppointments([]);
       }
     };
     fetchAppointments();
-  }, []);
+  }, [appointments]);
 
   const handleUpdateStatus = async (appointmentId, status) => {
     try {
@@ -67,7 +68,7 @@ const Dashboard = () => {
           </div>
           <div className="secondBox">
             <p>Total Appointments</p>
-            <h3>8</h3>
+            <h3>{appointments.length}</h3>
           </div>
           <div className="thirdBox">
             <p>Registered Doctors</p>
